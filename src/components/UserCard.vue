@@ -18,10 +18,12 @@
       </div>
       <div class="pr-UserCard__col">
         <div class="pr-UserCard__subTitle">Starships:</div>
-        <span class="badge badge-danger" v-for="item in starships" :key="item">{{ item }}</span>
+        <span class="badge badge-info" v-for="item in starships" :key="item">{{ item }}</span>
       </div>
     </div>
     <hr>
+    <router-link :to="{ name: 'ViewPerson', params: { id: '1' }}"
+                 class="btn btn-info btn-sm">See more info Person</router-link>
   </div>
 </template>
 
@@ -29,6 +31,7 @@
 export default {
   name: "UserCard",
   props: {
+    id: String,
     name: String,
     gender: String,
     height: Number,
@@ -68,7 +71,7 @@ dt:after {
   display: inline-block;
 }
 .pr-UserCard dt {
-
+  font-weight: normal;
 }
 .pr-UserCard dd {
   margin-left: 1ex;
@@ -77,13 +80,7 @@ dt:after {
 .pr-UserCard__subTitle {
   font-weight: bold;
 }
-.badge {
-  display: inline-block;
-  border-radius: 3px;
-}
-.badge-danger {
-  background-color: red;
-}
+
 .pr-UserCard hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
